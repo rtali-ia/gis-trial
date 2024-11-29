@@ -1,1 +1,2 @@
-loc_code,sw_lat, sw_log, ne_lat, ne_log
+loc_code, sw_lat, sw_log, ne_lat, ne_log
+1, 42, 43, -93, -92
