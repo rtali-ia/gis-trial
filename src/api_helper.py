@@ -51,6 +51,10 @@ def write_settings(PATH : str):
 
 
 def call_nasa_api(base_folder, loc_cd, sw_lat, sw_lon, ne_lat, ne_lon, call_dt, mode, logger):
+    
+    #Print mode
+    print(f'Fetching data for {loc_cd} at {call_dt} for {mode} mode')
+    
     #Create a bounding box
     extents = "{0},{1},{2},{3}".format(sw_lat, sw_lon, ne_lat, ne_lon)
     
