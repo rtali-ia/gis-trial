@@ -26,7 +26,8 @@ if __name__ == '__main__':
     
     #Read all locations from locations.csv, Skip header
     locs = np.genfromtxt('locations.csv', delimiter=',', dtype=str, encoding=None, skip_header=1)
-    
+    print(locs.shape)
+        
     #Read all channels from channels.csv
     channels = np.genfromtxt('channels.csv', delimiter=',', dtype=str, encoding=None, skip_header=1)
     
@@ -53,7 +54,7 @@ if __name__ == '__main__':
                 time_seconds = end_time - start_time
                 timer.append(time_seconds)
                 
-                if response.status_code == 200:
+                if response:
                     logger.info(f'API call successful for location {loc}, channel {channel}, date {dt}. Time taken: {time_seconds}')
                 else:
                     logger.error(f'API call failed for location {loc}, channel {channel}, date {dt}, Response Code : {response.status_code}, Time taken: {time_seconds}')
