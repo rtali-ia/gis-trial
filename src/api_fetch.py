@@ -57,7 +57,7 @@ if __name__ == '__main__':
                 if response:
                     logger.info(f'API call successful for location {loc}, channel {channel}, date {dt}. Time taken: {time_seconds}')
                 else:
-                    logger.error(f'API call failed for location {loc}, channel {channel}, date {dt}, Response Code : {response.status_code}, Time taken: {time_seconds}')
+                    logger.error(f'API call failed for location {loc}, channel {channel}, date {dt}, Time taken: {time_seconds}')
     
     #Prepare Stats
     
