@@ -38,6 +38,10 @@ if __name__ == '__main__':
     dates = np.arange(np.datetime64(start_date), np.datetime64(end_date), np.timedelta64(int(frequency), 'D'))
     dates = [str(date) for date in dates]
     
+    print(len(dates))
+    
+    input('Press Enter to continue...')
+    
     # Call NASA API for each date
     
     for loc in locs:

@@ -52,17 +52,14 @@ def write_settings(PATH : str):
 
 def call_nasa_api(base_folder, loc_cd, sw_lat, sw_lon, ne_lat, ne_lon, call_dt, mode, logger):
     
-    #Print mode
-    print(f'Fetching data for {loc_cd} at {call_dt} for {mode} mode')
-    
     #Create a bounding box
-    extents = "{0},{1},{2},{3}".format(sw_lat, sw_lon, ne_lat, ne_lon)
+    extents = "{0},{1},{2},{3}".format(sw_lat,sw_lon,ne_lat,ne_lon)
+    
+    #Make sure there are no spaces in the extents
+    extents = extents.replace(' ','')
     
     #Construct API URL
-    gibs_url = 'https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi?\
-                    version=1.3.0&service=WMS&request=GetMap&\
-                        format=image/png&STYLE=default&bbox={0}&CRS=EPSG:4326&\
-                            HEIGHT=512&WIDTH=512&TIME={1}&layers={2}'.format(extents, call_dt, mode)
+    gibs_url = 'https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi?version=1.3.0&service=WMS&request=GetMap&format=image/png&STYLE=default&bbox={0}&CRS=EPSG:4326&HEIGHT=512&WIDTH=512&TIME={1}&layers={2}'.format(extents,call_dt,mode)
 
     #Call API to download png image and save it
     
