@@ -26,10 +26,17 @@ if __name__ == '__main__':
     
     #Read all locations from locations.csv, Skip header
     locs = np.genfromtxt('locations.csv', delimiter=',', dtype=str, encoding=None, skip_header=1)
-    print(locs.shape)
+    
+    #Check if locs is a 1D array, Make it 2D
+    if len(locs.shape) == 1:
+        locs = [locs]
         
     #Read all channels from channels.csv
     channels = np.genfromtxt('channels.csv', delimiter=',', dtype=str, encoding=None, skip_header=1)
+    
+    #Check if channels is a 1D array, Make it 2D
+    if len(channels.shape) == 1:
+        channels = [channels]
     
     #Calculate dates between start and end date using frequency in the YYYY-MM-DD format
     dates = np.arange(np.datetime64(start_date), np.datetime64(end_date), np.timedelta64(int(frequency), 'D'))
