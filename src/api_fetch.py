@@ -24,11 +24,11 @@ if __name__ == '__main__':
     frequency, start_date, end_date = read_data_settings(PATH)
     write_path, mongo_db, mongo_uri = write_settings(PATH)
     
-    #Read all locations from locations.csv
-    locs = np.genfromtxt('locations.csv', delimiter=',', dtype=str, encoding=None)
+    #Read all locations from locations.csv, Skip header
+    locs = np.genfromtxt('locations.csv', delimiter=',', dtype=str, encoding=None, skip_header=1)
     
     #Read all channels from channels.csv
-    channels = np.genfromtxt('channels.csv', delimiter=',', dtype=str, encoding=None)
+    channels = np.genfromtxt('channels.csv', delimiter=',', dtype=str, encoding=None, skip_header=1)
     
     #Calculate dates between start and end date using frequency in the YYYY-MM-DD format
     dates = np.arange(np.datetime64(start_date), np.datetime64(end_date), np.timedelta64(int(frequency), 'D'))
